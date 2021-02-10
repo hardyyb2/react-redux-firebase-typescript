@@ -4,8 +4,8 @@ import { Route, Switch } from "react-router-dom";
 import { ProtectedRoute } from ".";
 import { Spinner } from "../common";
 
-const Login = lazy(() => import("../pages/Login"));
-const Home = lazy(() => import("../pages/Home"));
+const Login = lazy(() => import("../pages/login"));
+const Home = lazy(() => import("../pages/home"));
 
 interface IProps {
   isAuthenticated: boolean;

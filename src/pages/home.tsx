@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import { ThunkDispatch as Dispatch } from "redux-thunk";
 
-import { Logout } from "../../components";
-import { AuthenticateActionTypes } from "../../store/actions";
-import { logoutUser } from "../../store/operations";
-import { IState } from "../../store/types";
+import { Logout } from "../components";
+import { AuthenticateActionTypes } from "../store/actions";
+import { logoutUser } from "../store/operations";
+import { IState } from "../store/types";
 
-import styles from "./Home.module.css";
+import styles from "../styles/PageStyles/Home.module.css";
 
 const HomePage: React.FC<{}> = () => {
   const user = useSelector((state: IState) => state.auth.user);

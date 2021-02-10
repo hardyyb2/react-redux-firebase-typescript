@@ -2,11 +2,11 @@ import { ThunkDispatch as Dispatch } from "redux-thunk";
 import { Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { IState } from "../../store/types";
-import { AuthenticateActionTypes } from "../../store/actions";
-import { loginUser } from "../../store/operations";
+import { IState } from "../store/types";
+import { AuthenticateActionTypes } from "../store/actions";
+import { loginUser } from "../store/operations";
 
-import styles from "./Login.module.css";
+import styles from "../styles/PageStyles/Login.module.css";
 
 const LoginPage: React.FC<{}> = () => {
   const isAuthenticated = useSelector(
