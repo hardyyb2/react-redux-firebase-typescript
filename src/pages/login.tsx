@@ -21,7 +21,7 @@ const LoginPage: React.FC<{}> = () => {
   return (
     <div>
       <button
-        onClick={() => dispatch(loginUser)}
+        onClick={() => dispatch(loginUser())}
         className={styles.loginButton}
       >
         Login
