@@ -1,20 +1,23 @@
+import { useDispatch, useSelector } from "react-redux";
+import { ThunkDispatch as Dispatch } from "redux-thunk";
+
 import { Logout } from "../../components";
-import { userDetailsProps } from "../../store/utility";
+import { AuthenticateActionTypes } from "../../store/actions";
+import { logoutUser } from "../../store/operations";
+import { IState } from "../../store/types";
 
 import styles from "./Home.module.css";
 
-interface IProps {
-  user: userDetailsProps | null;
-  logoutUserConnect: () => void;
-}
+const HomePage: React.FC<{}> = () => {
+  const user = useSelector((state: IState) => state.auth.user);
+  const dispatch: Dispatch<AuthenticateActionTypes, {}, any> = useDispatch();
 
-const HomePage: React.FC<IProps> = ({ user, logoutUserConnect }) => {
   return (
     <div>
       <div className={styles.welcomeTextContainer}>
         Welcome, {user?.displayName}
       </div>
-      <Logout handleLogout={logoutUserConnect} />
+      <Logout handleLogout={() => dispatch(logoutUser())} />
     </div>
   );
 };
