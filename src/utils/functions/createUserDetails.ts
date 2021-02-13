@@ -7,7 +7,7 @@ export interface userDetailsProps {
   uid: string;
 }
 
-export const createUserDetails = (user: any): userDetailsProps => {
+const createUserDetails = (user: any): userDetailsProps => {
   const userDetails: userDetailsProps = {
     displayName: user?.displayName ?? "",
     email: user?.email ?? "",
@@ -18,3 +18,5 @@ export const createUserDetails = (user: any): userDetailsProps => {
   };
   return userDetails;
 };
+
+export default createUserDetails;

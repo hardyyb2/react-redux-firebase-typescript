@@ -1,4 +1,4 @@
-import { userDetailsProps } from "../utility";
+import { userDetailsProps } from "../../utils/functions";
 
 export interface IAuth {
   isAuthenticated: boolean;

@@ -18,7 +18,7 @@ import {
   VERIFY_ERROR,
   VERIFY_ERROR_TYPE,
 } from "../constants";
-import { userDetailsProps } from "../utility";
+import { userDetailsProps } from "../../utils/functions";
 
 /**
  *  LOGIN
@@ -29,7 +29,7 @@ interface LOGIN_REQUEST_PROPS {
   error: null;
 }
 
-export const loginRequest = (): LOGIN_REQUEST_PROPS => ({
+const loginRequest = (): LOGIN_REQUEST_PROPS => ({
   type: LOGIN_REQUEST,
   payload: null,
   error: null,
@@ -41,7 +41,7 @@ interface LOGIN_SUCCESS_PROPS {
   error: null;
 }
 
-export const loginSuccess = (user: userDetailsProps): LOGIN_SUCCESS_PROPS => ({
+const loginSuccess = (user: userDetailsProps): LOGIN_SUCCESS_PROPS => ({
   type: LOGIN_SUCCESS,
   payload: user,
   error: null,
@@ -53,7 +53,7 @@ interface LOGIN_ERROR_PROPS {
   error: string;
 }
 
-export const loginError = (error: string): LOGIN_ERROR_PROPS => ({
+const loginError = (error: string): LOGIN_ERROR_PROPS => ({
   type: LOGIN_ERROR,
   payload: null,
   error,
@@ -68,7 +68,7 @@ interface VERIFY_REQUEST_PROPS {
   error: null;
 }
 
-export const verifyRequest = (): VERIFY_REQUEST_PROPS => ({
+const verifyRequest = (): VERIFY_REQUEST_PROPS => ({
   type: VERIFY_REQUEST,
   payload: null,
   error: null,
@@ -80,9 +80,7 @@ interface VERIFY_SUCCESS_PROPS {
   error: null;
 }
 
-export const verifySuccess = (
-  user: userDetailsProps
-): VERIFY_SUCCESS_PROPS => ({
+const verifySuccess = (user: userDetailsProps): VERIFY_SUCCESS_PROPS => ({
   type: VERIFY_SUCCESS,
   payload: user,
   error: null,
@@ -94,7 +92,7 @@ interface VERIFY_ERROR_PROPS {
   error: string;
 }
 
-export const verifyError = (error: string): VERIFY_ERROR_PROPS => ({
+const verifyError = (error: string): VERIFY_ERROR_PROPS => ({
   type: VERIFY_ERROR,
   payload: null,
   error,
@@ -110,7 +108,7 @@ interface LOGOUT_REQUEST_PROPS {
   error: null;
 }
 
-export const logoutRequest = (): LOGOUT_REQUEST_PROPS => ({
+const logoutRequest = (): LOGOUT_REQUEST_PROPS => ({
   type: LOGOUT_REQUEST,
   payload: null,
   error: null,
@@ -122,7 +120,7 @@ interface LOGOUT_SUCCESS_PROPS {
   error: null;
 }
 
-export const logoutSuccess = (): LOGOUT_SUCCESS_PROPS => ({
+const logoutSuccess = (): LOGOUT_SUCCESS_PROPS => ({
   type: LOGOUT_SUCCESS,
   payload: null,
   error: null,
@@ -134,7 +132,7 @@ interface LOGOUT_ERROR_PROPS {
   error: string;
 }
 
-export const logoutError = (error: string): LOGOUT_ERROR_PROPS => ({
+const logoutError = (error: string): LOGOUT_ERROR_PROPS => ({
   type: LOGOUT_ERROR,
   payload: null,
   error,
@@ -150,3 +148,19 @@ export type AuthenticateActionTypes =
   | VERIFY_REQUEST_PROPS
   | VERIFY_SUCCESS_PROPS
   | VERIFY_ERROR_PROPS;
+
+const authActions = {
+  loginRequest,
+  loginSuccess,
+  loginError,
+
+  verifyRequest,
+  verifySuccess,
+  verifyError,
+
+  logoutRequest,
+  logoutSuccess,
+  logoutError,
+};
+
+export default authActions;

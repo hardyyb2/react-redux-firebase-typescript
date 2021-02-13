@@ -1,25 +1,14 @@
 import { ThunkDispatch as Dispatch } from "redux-thunk";
 
 import { auth, googleProvider, myFirebase } from "../../firebase";
-import { createErrorMessage } from "../../utility";
-import {
-  loginRequest,
-  loginSuccess,
-  loginError,
-  logoutRequest,
-  logoutSuccess,
-  logoutError,
-  verifyRequest,
-  AuthenticateActionTypes,
-  verifySuccess,
-  verifyError,
-} from "../actions";
-import { createUserDetails } from "../utility";
+import { createErrorMessage, createUserDetails } from "../../utils/functions";
+import { authActions } from "../actions";
+import { AuthenticateActionTypes } from "../actions/authActions";
 
 export const loginUser = () => async (
   dispatch: Dispatch<AuthenticateActionTypes, {}, any>
 ) => {
-  dispatch(loginRequest());
+  dispatch(authActions.loginRequest());
 
   try {
     const { user } = await auth.signInWithPopup(googleProvider);
@@ -29,34 +18,34 @@ export const loginUser = () => async (
     if (user?.uid) {
       localStorage.setItem("user", JSON.stringify(userDetails));
     }
-    dispatch(loginSuccess(userDetails));
+    dispatch(authActions.loginSuccess(userDetails));
   } catch (error) {
     const message = createErrorMessage(error);
-    dispatch(loginError(message));
+    dispatch(authActions.loginError(message));
   }
 };
 
 export const verifyUser = () => async (
   dispatch: Dispatch<AuthenticateActionTypes, {}, any>
 ) => {
-  dispatch(verifyRequest());
+  dispatch(authActions.verifyRequest());
   myFirebase.auth().onAuthStateChanged(
     (user) => {
       if (user) {
         const userDetails = createUserDetails(user);
-        dispatch(verifySuccess(userDetails));
+        dispatch(authActions.verifySuccess(userDetails));
       } else {
         const err = {
           code: "auth/no-user",
           message: "No user found",
         };
         const message = createErrorMessage(err);
-        dispatch(verifyError(message));
+        dispatch(authActions.verifyError(message));
       }
     },
     (error) => {
       const message = createErrorMessage(error);
-      dispatch(verifyError(message));
+      dispatch(authActions.verifyError(message));
     }
   );
 };
@@ -64,12 +53,12 @@ export const verifyUser = () => async (
 export const logoutUser = () => async (
   dispatch: Dispatch<AuthenticateActionTypes, {}, any>
 ) => {
-  dispatch(logoutRequest());
+  dispatch(authActions.logoutRequest());
   try {
     await auth.signOut();
-    dispatch(logoutSuccess());
+    dispatch(authActions.logoutSuccess());
   } catch (error) {
     const message = createErrorMessage(error);
-    dispatch(logoutError(message));
+    dispatch(authActions.logoutError(message));
   }
 };
