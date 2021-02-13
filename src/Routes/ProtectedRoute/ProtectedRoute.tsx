@@ -2,6 +2,7 @@ import React from "react";
 import { Route, RouteProps, Redirect } from "react-router-dom";
 
 import { Spinner } from "../../common";
+import { Layout as ProtectedLayout } from "../../layout";
 
 interface ProtectedRouteProps extends RouteProps {
   component: React.ComponentType<any>;
@@ -21,7 +22,9 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
       isVerifying ? (
         <Spinner />
       ) : isAuthenticated ? (
-        <Component {...props} />
+        <ProtectedLayout>
+          <Component {...props} />
+        </ProtectedLayout>
       ) : (
         <Redirect
           to={{

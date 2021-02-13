@@ -9,9 +9,9 @@ import { loginUser } from "../store/operations";
 import styles from "../styles/PageStyles/Login.module.css";
 
 const LoginPage: React.FC<{}> = () => {
-  const isAuthenticated = useSelector(
-    (state: IState) => state.auth.isAuthenticated
-  );
+  const {
+    auth: { isAuthenticated },
+  } = useSelector((state: IState) => state);
   const dispatch: Dispatch<AuthenticateActionTypes, {}, any> = useDispatch();
 
   if (isAuthenticated) {
