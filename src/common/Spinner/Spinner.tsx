@@ -1,8 +1,8 @@
-import React from "react";
+import { FC } from "react";
 
 import styles from "./Spinner.module.css";
 
-const Spinner: React.FC = () => {
+const Spinner: FC<{}> = () => {
   return (
     <div className={styles.spinner}>
       <div className={styles.rect1}></div>

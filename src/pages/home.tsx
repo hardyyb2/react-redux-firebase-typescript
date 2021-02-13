@@ -1,3 +1,4 @@
+import { FC } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ThunkDispatch as Dispatch } from "redux-thunk";
 
@@ -11,7 +12,7 @@ import { IState } from "../store/types";
 
 import styles from "../styles/PageStyles/Home.module.css";
 
-const HomePage: React.FC<{}> = () => {
+const HomePage: FC<{}> = () => {
   const {
     auth: { user },
   } = useSelector((state: IState) => state);

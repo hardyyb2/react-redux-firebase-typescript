@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import { FC, lazy, Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import { ProtectedRoute } from ".";
@@ -28,7 +28,7 @@ interface IProps {
   isVerifying: boolean;
 }
 
-const Routes: React.FC<IProps> = ({ isAuthenticated, isVerifying }) => {
+const Routes: FC<IProps> = ({ isAuthenticated, isVerifying }) => {
   return (
     <Suspense fallback={<Spinner />}>
       <Switch>

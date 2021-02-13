@@ -1,16 +1,16 @@
-import React from "react";
+import { ComponentType, FC } from "react";
 import { Route, RouteProps, Redirect } from "react-router-dom";
 
 import { Spinner } from "../../common";
 import { Layout as ProtectedLayout } from "../../layout";
 
 interface ProtectedRouteProps extends RouteProps {
-  component: React.ComponentType<any>;
+  component: ComponentType<any>;
   isAuthenticated: boolean | null;
   isVerifying: boolean | null;
 }
 
-const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
+const ProtectedRoute: FC<ProtectedRouteProps> = ({
   component: Component,
   isAuthenticated,
   isVerifying,

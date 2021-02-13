@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, FC } from "react";
 
 import { Routes } from "../Routes";
 
@@ -13,7 +13,7 @@ interface AppProps {
   verifyUserConnect: () => void;
 }
 
-const App: React.FC<AppProps> = ({
+const App: FC<AppProps> = ({
   isVerifying,
   isAuthenticated,
   verifyUserConnect,
