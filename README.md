@@ -1,6 +1,6 @@
 # Getting Started
 
-## React Redux Firebase (react-redux-firebase)
+## React Redux Firebase (Typescript)(react-redux-firebase-typescript)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -12,7 +12,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   - React
   - Redux
   - Firebase
-  - Javascript
+  - Typescript
 - Other Packages used -
   - react-redux
   - redux
