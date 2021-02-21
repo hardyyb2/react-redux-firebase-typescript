@@ -11,6 +11,10 @@ export const loginUser = () => async (
   dispatch(authActions.loginRequest());
 
   try {
+    /** Currently only using Google
+     *  Check other providers here-
+     *  https://firebase.google.com/docs/auth
+     */
     const { user } = await auth.signInWithPopup(googleProvider);
 
     const userDetails = createUserDetails(user);

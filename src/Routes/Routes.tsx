@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import { ProtectedRoute } from ".";
 import { Spinner } from "../common";
 
+/** Import lazily to improve code splitting */
 const Login = lazy(() => import("../pages/login"));
 const Home = lazy(() => import("../pages/home"));
 const NotFound = lazy(() => import("../pages/404"));
