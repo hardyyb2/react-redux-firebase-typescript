@@ -16,3 +16,5 @@ export const Messages = {
   NO_USER_FOUND_MSG: "No User found",
   DEFAULT_MSG: "Some error occurred. Please try again",
 };
+
+export const LOCALSTORAGE_USER_KEY = "user";

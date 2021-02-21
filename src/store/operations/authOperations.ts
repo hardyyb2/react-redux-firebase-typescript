@@ -1,7 +1,13 @@
 import { ThunkDispatch as Dispatch } from "redux-thunk";
 
 import { auth, googleProvider, myFirebase } from "../../firebase";
-import { createErrorMessage, createUserDetails } from "../../utils/functions";
+import { LOCALSTORAGE_USER_KEY } from "../../utils/constants";
+import {
+  createErrorMessage,
+  createUserDetails,
+  deleteFromLocalStorage,
+  saveToLocalStorage,
+} from "../../utils/functions";
 import { authActions } from "../actions";
 import { AuthenticateActionTypes } from "../actions/authActions";
 
@@ -20,7 +26,7 @@ export const loginUser = () => async (
     const userDetails = createUserDetails(user);
 
     if (user?.uid) {
-      localStorage.setItem("user", JSON.stringify(userDetails));
+      saveToLocalStorage(LOCALSTORAGE_USER_KEY, userDetails);
     }
     dispatch(authActions.loginSuccess(userDetails));
   } catch (error) {
@@ -60,6 +66,7 @@ export const logoutUser = () => async (
   dispatch(authActions.logoutRequest());
   try {
     await auth.signOut();
+    deleteFromLocalStorage(LOCALSTORAGE_USER_KEY);
     dispatch(authActions.logoutSuccess());
   } catch (error) {
     const message = createErrorMessage(error);
