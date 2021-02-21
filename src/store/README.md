@@ -8,6 +8,7 @@
   - _operations_ - contains async tasks to be performed before dispatching pure actions using redux-thunk
   - _reducers_ - contains the state and reducer functions to modify the state
   - _selectors_ - used to store selectors (functions to modify state object and return it)
+  - _types_ - types for reducer states
 - **Files** -
   - _configureStore_ - redux configuration file to combine reducers and add other middlewares e.g. redux-thunk, redux-logger and also config for redux dev tools
 
