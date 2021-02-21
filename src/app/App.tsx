@@ -19,6 +19,7 @@ const App: FC<AppProps> = ({
   verifyUserConnect,
 }) => {
   useEffect(() => {
+    /** Verify user on page load or refresh*/
     verifyUserConnect();
   }, []);
 
