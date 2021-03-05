@@ -36,6 +36,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 <br />
 
+## Contributing
+
+For contributing to this repo, follow the guidelines mentioned in [react-templates CONTRIBUTING.md](https://github.com/hardyyb2/react-templates/blob/main/CONTRIBUTING.md)
+
 ## Available Scripts
 
 In the project directory, you can run:
